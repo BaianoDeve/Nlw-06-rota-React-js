@@ -1,14 +1,13 @@
 import { FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import { illustrationImg, logoImg } from '../../assets';
 
-import '../styles/auth.scss';
+import './styles.scss';
 
-import { Button } from '../components/Button';
-import { database } from '../services/firebase';
-import { useAuth } from '../hooks/useAuth';
+import { Button } from '../../components';
+import { database } from '../../services/firebase';
+import { useAuth } from '../../hooks/useAuth';
 
 export function NewRoom() {
   const { user } = useAuth();
@@ -29,7 +28,7 @@ export function NewRoom() {
       authorId: user?.id,
     });
 
-    history.push(`/rooms/${firebaseRoom.key}`);
+    history.push(`/admin/rooms/${firebaseRoom.key}`);
   }
 
   return (
@@ -49,7 +48,7 @@ export function NewRoom() {
           <form onSubmit={handleCreateRoom}>
             <input
               type="text"
-              placeholder="digite o código da sala"
+              placeholder="digite o titulo da sala"
               onChange={(event) => setNewRoom(event.target.value)}
               value={newRoom}
             />
