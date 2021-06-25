@@ -1,6 +1,6 @@
 import { useParams, useHistory } from 'react-router-dom';
 
-import { logoImg, deleteImg } from '../../assets';
+import { logoImg, deleteImg, checkImg, answerImg } from '../../assets';
 import { Button, RoomCode, Question } from '../../components';
 
 // import { useAuth } from '../../hooks/useAuth';
@@ -34,6 +34,18 @@ export function AdminRoom() {
     }
   }
 
+  async function handleCheckQuestionAsAnswered(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isAnswered: true,
+    });
+  }
+
+  async function handleHighlightedQuestion(questionId: string) {
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+      isHighlighted: true,
+    });
+  }
+
   return (
     <div id="page-room">
       <header>
@@ -61,7 +73,25 @@ export function AdminRoom() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighlighted={question.isHighlighted}
               >
+                {!question.isAnswered && (
+                  <>
+                    <button
+                    type="button"
+                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                    >
+                      <img src={checkImg} alt="Marcar pergunta como respodida" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleHighlightedQuestion(question.id)}
+                    >
+                      <img src={answerImg} alt="Destacar a pergunta" />
+                    </button>
+                  </>
+                )}
                 <button
                   type="button"
                   onClick={() => handleDeleteQuestion(question.id)}
