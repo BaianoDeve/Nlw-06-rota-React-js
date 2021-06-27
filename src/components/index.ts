@@ -1,5 +1,3 @@
-import { Button } from './Button';
-import { Question } from './Question';
-import { RoomCode } from './RoomCode';
-
-export { Button, Question, RoomCode };
+export { Button } from './Button';
+export { Question } from './Question';
+export { RoomCode } from './RoomCode';

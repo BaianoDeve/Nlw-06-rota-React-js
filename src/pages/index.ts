@@ -1,6 +1,4 @@
-import { Home } from './Home';
-import { NewRoom } from './NewRoom';
-import { Room } from './Room';
-import { AdminRoom } from './AdminRoom';
-
-export { Home, NewRoom, Room, AdminRoom };
+export { Home } from './Home';
+export { NewRoom } from './NewRoom';
+export { Room } from './Room';
+export { AdminRoom } from './AdminRoom';
