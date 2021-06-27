@@ -1,9 +1,13 @@
 import { useState, FormEvent } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { logoImg } from '../../assets';
-
-import { Button, RoomCode, Question } from '../../components';
+import {
+  Header,
+  Button,
+  ButtonIcon,
+  RoomCode,
+  Question,
+} from '../../components';
 
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRoom';
@@ -67,12 +71,9 @@ export function Room() {
 
   return (
     <div id="page-room">
-      <header>
-        <div className="content">
-          <img src={logoImg} alt="Letmeask" />
-          <RoomCode code={roomId} />
-        </div>
-      </header>
+      <Header>
+        <RoomCode code={roomId} />
+      </Header>
 
       <main>
         <div className="room-title">
@@ -115,15 +116,17 @@ export function Room() {
                 isHighlighted={question.isHighlighted}
               >
                 {!question.isAnswered && (
-                  <button
-                  className={`like-button ${question.likeId ? 'liked' : ''}`}
-                  type="button"
-                  aria-label="Marcar como gostei"
-                  onClick={() =>
-                    handleLikeQuestion(question.id, question.likeId)
-                  }
+                  <ButtonIcon
+                    className={`like-button ${question.likeId ? 'liked' : ''}`}
+                    aria-label="Marcar como gostei"
+                    type="button"
+                    onClick={() =>
+                      handleLikeQuestion(question.id, question.likeId)
+                    }
                   >
-                    {question.likeCount > 0 && <span>{question.likeCount}</span>}
+                    {question.likeCount > 0 && (
+                      <span>{question.likeCount}</span>
+                    )}
                     <svg
                       width="24"
                       height="24"
@@ -139,7 +142,7 @@ export function Room() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </button>
+                  </ButtonIcon>
                 )}
               </Question>
             );
