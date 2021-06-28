@@ -1,22 +1,22 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Home, NewRoom, Room, AdminRoom } from './pages';
+import { ThemeProvider } from 'styled-components';
+import { useTheme } from './hooks/useTheme';
 
-import { AuthProvider } from './contexts/AuthContext';
+import GlobalStyle from './styles/global';
+
+import { Routes } from './routes';
 
 function App() {
+  const { theme } = useTheme();
+
   return (
     <div>
       <BrowserRouter>
-        <AuthProvider>
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/rooms/new" component={NewRoom} />
-            <Route path="/rooms/:id" component={Room} />
-
-            <Route path="/admin/rooms/:id" component={AdminRoom} />
-          </Switch>
-        </AuthProvider>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Routes />
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );
