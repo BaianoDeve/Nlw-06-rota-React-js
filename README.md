@@ -56,19 +56,10 @@ Nos links abaixo você encontra o layout do projeto. Lembrando que você precisa
 
 - [Layout](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate)
 
-## 👊 Creditos
-
-Ao Diego CTO da rocketseat e a todos da rocketseat por trazer essa semana maravilhosa cheia de conteúdo muito top!
-
-- [Diego - Github](https://github.com/diego3g)
-- [Rocketseat - Github ](https://github.com/rocketseat-education)
-- [Rocketseat - Youtube](https://www.youtube.com/channel/UCSfwM5u0Kce6Cce8_S72olg)
-- [Rocketseat - Discord](https://discordapp.com/invite/gCRAFhc)
-
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
 
-Feito com ♥ by Renan Alves :wave:
+by Renan Alves :wave:
